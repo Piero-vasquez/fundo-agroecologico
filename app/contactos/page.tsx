@@ -1,42 +1,9 @@
 "use client"
 
-import type React from "react"
-
-import { useState } from "react"
-import { Button } from "../../components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "../../components/ui/card"
-import { Input } from "../../components/ui/input"
-import { Label } from "../../components/ui/label"
-import { Textarea } from "../../components/ui/textarea"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../../components/ui/select"
-import { Phone, MapPin, Clock, MessageCircle, Send } from "lucide-react"
+import { Card, CardContent } from "../../components/ui/card"
+import { Phone, MapPin, Clock, MessageCircle } from "lucide-react"
 
 export default function ContactosPage() {
-  const [formData, setFormData] = useState({
-    nombre: "",
-    email: "",
-    telefono: "",
-    tipoConsulta: "",
-    mensaje: "",
-  })
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    console.log("Formulario enviado:", formData)
-    alert("¡Gracias por tu mensaje! Te contactaremos pronto.")
-    setFormData({
-      nombre: "",
-      email: "",
-      telefono: "",
-      tipoConsulta: "",
-      mensaje: "",
-    })
-  }
-
-  const handleInputChange = (field: string, value: string) => {
-    setFormData((prev) => ({ ...prev, [field]: value }))
-  }
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-50">
       {/* Hero Section */}
@@ -146,83 +113,7 @@ export default function ContactosPage() {
                   </Card>
                 </div>
               </div>
-
-              {/* Formulario de Contacto */}
-              <Card className="border-0 shadow-xl">
-                <CardHeader>
-                  <CardTitle className="text-2xl text-center">Envíanos un Mensaje</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <div>
-                        <Label htmlFor="nombre">Nombre Completo *</Label>
-                        <Input
-                          id="nombre"
-                          value={formData.nombre}
-                          onChange={(e) => handleInputChange("nombre", e.target.value)}
-                          placeholder="Tu nombre completo"
-                          required
-                        />
-                      </div>
-                      <div>
-                        <Label htmlFor="telefono">Teléfono</Label>
-                        <Input
-                          id="telefono"
-                          value={formData.telefono}
-                          onChange={(e) => handleInputChange("telefono", e.target.value)}
-                          placeholder="Tu número de teléfono"
-                        />
-                      </div>
-                    </div>
-
-                    <div>
-                      <Label htmlFor="email">Email *</Label>
-                      <Input
-                        id="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={(e) => handleInputChange("email", e.target.value)}
-                        placeholder="tu@email.com"
-                        required
-                      />
-                    </div>
-
-                    <div>
-                      <Label htmlFor="tipoConsulta">Tipo de Consulta</Label>
-                      <Select onValueChange={(value) => handleInputChange("tipoConsulta", value)}>
-                        <SelectTrigger>
-                          <SelectValue placeholder="Selecciona el tipo de consulta" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="pedido">Realizar Pedido</SelectItem>
-                          <SelectItem value="informacion">Información de Productos</SelectItem>
-                          <SelectItem value="mayorista">Ventas al Mayoreo</SelectItem>
-                          <SelectItem value="visita">Agendar Visita</SelectItem>
-                          <SelectItem value="otro">Otro</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-
-                    <div>
-                      <Label htmlFor="mensaje">Mensaje *</Label>
-                      <Textarea
-                        id="mensaje"
-                        value={formData.mensaje}
-                        onChange={(e) => handleInputChange("mensaje", e.target.value)}
-                        placeholder="Cuéntanos cómo podemos ayudarte..."
-                        rows={5}
-                        required
-                      />
-                    </div>
-
-                    <Button type="submit" className="w-full bg-green-600 hover:bg-green-700 text-lg py-3">
-                      <Send className="w-5 h-5 mr-2" />
-                      Enviar Mensaje
-                    </Button>
-                  </form>
-                </CardContent>
-              </Card>
+              {/* Fin de Información de Contacto */}
             </div>
           </div>
         </div>
