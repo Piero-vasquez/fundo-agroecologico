@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Leaf, Phone, Mail, MapPin, Facebook, Instagram, Twitter } from "lucide-react"
+import { Leaf, Phone, MapPin, Instagram } from "lucide-react"
 
 export function Footer() {
   return (
@@ -64,15 +64,12 @@ export function Footer() {
             <div className="space-y-3">
               <div className="flex items-center space-x-2">
                 <Phone className="w-4 h-4 text-green-400" />
-                <span className="text-gray-300 text-sm">+51 999 888 777</span>
+                <span className="text-gray-300 text-sm">+51 981 050 724</span>
               </div>
-              <div className="flex items-center space-x-2">
-                <Mail className="w-4 h-4 text-green-400" />
-                <span className="text-gray-300 text-sm">contacto@fundoagroecologico.pe</span>
-              </div>
+              
               <div className="flex items-center space-x-2">
                 <MapPin className="w-4 h-4 text-green-400" />
-                <span className="text-gray-300 text-sm">Lurín, Lima - Perú</span>
+                <span className="text-gray-300 text-sm">Pachacámac Lima C.Y.D Mz. H Lt. 31</span>
               </div>
             </div>
           </div>
@@ -82,15 +79,16 @@ export function Footer() {
         <div className="border-t border-gray-800 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex space-x-4 mb-4 md:mb-0">
-              <a href="#" className="text-gray-300 hover:text-green-400 transition-colors">
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a href="#" className="text-gray-300 hover:text-green-400 transition-colors">
+              
+              <a
+                href="https://www.instagram.com/fundoagroecologicob/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-300 hover:text-green-400 transition-colors"
+              >
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href="#" className="text-gray-300 hover:text-green-400 transition-colors">
-                <Twitter className="w-5 h-5" />
-              </a>
+              
             </div>
             <p className="text-gray-400 text-sm">© 2024 Fundo Agroecológico. Todos los derechos reservados.</p>
           </div>
