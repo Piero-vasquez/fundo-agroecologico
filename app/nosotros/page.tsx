@@ -58,7 +58,7 @@ export default function NosotrosPage() {
               <div className="relative">
                 <div className="bg-white rounded-2xl p-8 shadow-xl">
                   <Image
-                    src="/nuestrocompromiso.jpg"
+                    src="/nosotros_imagen.jpg"
                     alt="Fundo Agroecológico"
                     width={500}
                     height={400}

@@ -54,12 +54,17 @@ export function Navigation() {
 
           {/* Actions */}
           <div className="flex items-center space-x-2">
-            <Button variant="ghost" size="icon" className="hidden sm:flex">
-              <User className="w-5 h-5" />
-            </Button>
-            <Button variant="ghost" size="icon">
-              <ShoppingCart className="w-5 h-5" />
-            </Button>
+            <Link href="/contactos">
+              <Button variant="ghost" size="icon" className="hidden sm:flex">
+                <User className="w-5 h-5" />
+              </Button>
+            </Link>
+            
+            <Link href="/productos">
+              <Button variant="ghost" size="icon" className="hidden sm:flex">
+                <ShoppingCart className="w-5 h-5" />
+              </Button>
+            </Link>
 
             {/* Mobile Menu */}
             <Sheet open={isOpen} onOpenChange={setIsOpen}>

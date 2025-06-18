@@ -2,8 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Button } from "../components/ui/button"
 import { Card, CardContent } from "../components/ui/card"
-import { Badge } from "../components/ui/badge"
-import { Leaf, Award, Truck, Shield, Star, ArrowRight } from "lucide-react"
+import { Leaf, Shield, Truck, Star, ArrowRight } from "lucide-react"
 
 export default function HomePage() {
   return (
@@ -14,26 +13,36 @@ export default function HomePage() {
         <div className="relative container mx-auto px-4 py-20 lg:py-32">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
-              <Badge className="bg-white/20 text-white border-white/30 hover:bg-white/30">
-                <Award className="w-4 h-4 mr-2" />
-                Certificación Orgánica 2024
-              </Badge>
-              <h1 className="text-4xl lg:text-6xl font-bold leading-tight">
-                Fresas y Frambuesas
-                <span className="block text-green-200">100% Orgánicas</span>
+              {/* Quitar badge de certificación */}
+              <h1 className="text-4xl lg:text-6xl font-bold leading-tight uppercase">
+                FRESAS Y FRAMBRUESAS <br />
+                LIBRE DE AGROQUIMICOS
               </h1>
+              <div>
+                <span className="font-bold text-lg">
+                  Orgánicos en certificación
+                </span>
+              </div>
               <p className="text-xl text-green-100 max-w-lg">
-                Cultivamos con amor y tecnología hidropónica las frutas más frescas y nutritivas, directamente del campo
-                a tu mesa.
+                Cultivamos con amor y tecnología hidropónica las frutas más
+                frescas y nutritivas, directamente del campo a tu mesa.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-white text-green-600 hover:bg-green-50">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-green-600 text-green-600 hover:border-green-400 hover:shadow-[0_0_8px_2px_rgba(34,197,94,0.4)] transition-all"
+                >
                   <Link href="/productos" className="flex items-center">
                     Ver Productos
                     <ArrowRight className="w-5 h-5 ml-2" />
                   </Link>
                 </Button>
-                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-green-600 text-green-600 hover:border-green-400 hover:shadow-[0_0_8px_2px_rgba(34,197,94,0.4)] transition-all"
+                >
                   <Link href="/nosotros">Conoce Nuestra Historia</Link>
                 </Button>
               </div>
@@ -51,11 +60,11 @@ export default function HomePage() {
                   </div>
                   <div className="text-center">
                     <div className="text-3xl font-bold">100%</div>
-                    <div className="text-green-200">Orgánico</div>
+                    <div className="text-green-200">Libre de Agroquímicos</div>
                   </div>
                   <div className="text-center">
                     <div className="text-3xl font-bold">2024</div>
-                    <div className="text-green-200">Certificación</div>
+                    <div className="text-green-200">En Certificación</div>
                   </div>
                 </div>
               </div>
@@ -68,63 +77,116 @@ export default function HomePage() {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Nuestros Productos</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Nuestros Productos
+            </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Frutas hidropónicas de la más alta calidad, cultivadas con técnicas sostenibles
+              Frutas hidropónicas de la más alta calidad, cultivadas con
+              técnicas sostenibles
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {/* Fresas */}
             <Card className="group hover:shadow-2xl transition-all duration-300 overflow-hidden border-0 bg-white">
               <div className="relative h-64 bg-gradient-to-br from-red-50 to-pink-50">
                 <Image
                   src="/fresa.jpg"
-                  alt="Fresas Orgánicas"
+                  alt="Fresas libres de agroquímicos"
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-300"
                 />
-                <Badge className="absolute top-4 left-4 bg-green-500 text-white">
+                <span className="absolute top-4 left-4 bg-green-500 text-white px-3 py-1 rounded-full flex items-center text-sm font-semibold">
                   <Leaf className="w-3 h-3 mr-1" />
-                  Orgánico
-                </Badge>
+                  Libre de Agroquímicos
+                </span>
               </div>
               <CardContent className="p-6">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">Fresas</h3>
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                  Fresas
+                </h3>
                 <p className="text-gray-600 mb-4">
-                  Fresas jugosas y dulces, cultivadas sin pesticidas en ambiente controlado
+                  Fresas jugosas y dulces, cultivadas sin pesticidas en ambiente
+                  controlado
                 </p>
-                <div className="flex items-center justify-between">
-                  <div className="text-3xl font-bold text-green-600">S/ 15</div>
-                  <Button className="bg-green-600 hover:bg-green-700">
-                    <Link href="/productos">Pedir Ahora</Link>
-                  </Button>
+                <div className="flex flex-col gap-2">
+                  <div className="flex items-center justify-between">
+                    <span className="text-base font-semibold">
+                      Taper Grande (1kg)
+                    </span>
+                    <span className="text-2xl font-bold text-green-600">
+                      S/ 12
+                    </span>
+                    <a
+                      href={`https://wa.me/51981050724?text=${encodeURIComponent(
+                        "Hola, quiero pedir Fresas Hidropónicas Premium - Taper Grande (1kg) por S/12."
+                      )}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-green-600 hover:bg-green-700 text-white rounded-md px-4 py-2 text-sm font-medium"
+                    >
+                      Pedir Ahora
+                    </a>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-base font-semibold">
+                      Taper Pequeño (½kg)
+                    </span>
+                    <span className="text-2xl font-bold text-green-600">
+                      S/ 6
+                    </span>
+                    <a
+                      href={`https://wa.me/51981050724?text=${encodeURIComponent(
+                        "Hola, quiero pedir Fresas Hidropónicas Premium - Taper Pequeño (½kg) por S/6."
+                      )}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-green-600 hover:bg-green-700 text-white rounded-md px-4 py-2 text-sm font-medium"
+                    >
+                      Pedir Ahora
+                    </a>
+                  </div>
                 </div>
               </CardContent>
             </Card>
 
+            {/* Frambuesas */}
             <Card className="group hover:shadow-2xl transition-all duration-300 overflow-hidden border-0 bg-white">
               <div className="relative h-64 bg-gradient-to-br from-purple-50 to-pink-50">
                 <Image
                   src="/frambruesas.jpeg"
-                  alt="Frambuesas Orgánicas"
+                  alt="Frambuesas libres de agroquímicos"
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-300"
                 />
-                <Badge className="absolute top-4 left-4 bg-green-500 text-white">
+                <span className="absolute top-4 left-4 bg-green-500 text-white px-3 py-1 rounded-full flex items-center text-sm font-semibold">
                   <Leaf className="w-3 h-3 mr-1" />
-                  Orgánico
-                </Badge>
+                  Libre de Agroquímicos
+                </span>
               </div>
               <CardContent className="p-6">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">Frambuesas</h3>
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                  Frambuesas
+                </h3>
                 <p className="text-gray-600 mb-4">
-                  Frambuesas antioxidantes y deliciosas, perfectas para una alimentación saludable
+                  Frambuesas antioxidantes y deliciosas, perfectas para una
+                  alimentación saludable
                 </p>
                 <div className="flex items-center justify-between">
-                  <div className="text-3xl font-bold text-green-600">S/ 20</div>
-                  <Button className="bg-green-600 hover:bg-green-700">
-                    <Link href="/productos">Pedir Ahora</Link>
-                  </Button>
+                  <span className="text-base font-semibold">1kg</span>
+                  <span className="text-2xl font-bold text-green-600">
+                    S/ 25
+                  </span>
+                  <a
+                    href={`https://wa.me/51981050724?text=${encodeURIComponent(
+                      "Hola, quiero pedir Frambuesas Hidropónicas Premium (1kg) por S/25."
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-green-600 hover:bg-green-700 text-white rounded-md px-4 py-2 text-sm font-medium"
+                  >
+                    Pedir Ahora
+                  </a>
                 </div>
               </CardContent>
             </Card>
@@ -136,8 +198,12 @@ export default function HomePage() {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">¿Por Qué Elegirnos?</h2>
-            <p className="text-xl text-gray-600">Comprometidos con la calidad y la sostenibilidad</p>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              ¿Por Qué Elegirnos?
+            </h2>
+            <p className="text-xl text-gray-600">
+              Comprometidos con la calidad y la sostenibilidad
+            </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -145,16 +211,24 @@ export default function HomePage() {
               <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-green-200 transition-colors">
                 <Leaf className="w-8 h-8 text-green-600" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">100% Orgánico</h3>
-              <p className="text-gray-600">Certificación orgánica oficial, sin químicos ni pesticidas</p>
+              <h3 className="text-xl font-semibold mb-2">
+                Libre de Agroquímicos
+              </h3>
+              <p className="text-gray-600">
+                Cultivo sin químicos ni pesticidas, cuidando tu salud
+              </p>
             </div>
 
             <div className="text-center group">
               <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-200 transition-colors">
                 <Shield className="w-8 h-8 text-blue-600" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">Calidad Garantizada</h3>
-              <p className="text-gray-600">Proceso de cultivo controlado para máxima calidad</p>
+              <h3 className="text-xl font-semibold mb-2">
+                Calidad Garantizada
+              </h3>
+              <p className="text-gray-600">
+                Proceso de cultivo controlado para máxima calidad
+              </p>
             </div>
 
             <div className="text-center group">
@@ -162,7 +236,9 @@ export default function HomePage() {
                 <Truck className="w-8 h-8 text-purple-600" />
               </div>
               <h3 className="text-xl font-semibold mb-2">Entrega Fresca</h3>
-              <p className="text-gray-600">Del campo a tu mesa en menos de 24 horas</p>
+              <p className="text-gray-600">
+                Del campo a tu mesa en menos de 24 horas
+              </p>
             </div>
 
             <div className="text-center group">
@@ -170,7 +246,9 @@ export default function HomePage() {
                 <Star className="w-8 h-8 text-yellow-600" />
               </div>
               <h3 className="text-xl font-semibold mb-2">Experiencia</h3>
-              <p className="text-gray-600">Años de experiencia en cultivo hidropónico</p>
+              <p className="text-gray-600">
+                Años de experiencia en cultivo hidropónico
+              </p>
             </div>
           </div>
         </div>
@@ -179,20 +257,31 @@ export default function HomePage() {
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-green-600 to-emerald-600 text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-4">¿Listo para Probar la Diferencia?</h2>
+          <h2 className="text-4xl font-bold mb-4">
+            ¿Listo para Probar la Diferencia?
+          </h2>
           <p className="text-xl mb-8 text-green-100">
-            Únete a cientos de familias que ya disfrutan de nuestros productos orgánicos
+            Únete a cientos de familias que ya disfrutan de nuestros productos
+            saludables
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-white text-green-600 hover:bg-green-50">
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-green-600 text-green-600 hover:border-green-400 hover:shadow-[0_0_8px_2px_rgba(34,197,94,0.4)] transition-all"
+            >
               <Link href="/productos">Ver Todos los Productos</Link>
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-green-600 text-green-600 hover:border-green-400 hover:shadow-[0_0_8px_2px_rgba(34,197,94,0.4)] transition-all"
+            >
               <Link href="/contactos">Contactar Ahora</Link>
             </Button>
           </div>
         </div>
       </section>
     </div>
-  )
+  );
 }
