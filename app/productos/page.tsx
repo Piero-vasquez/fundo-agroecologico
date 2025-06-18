@@ -46,7 +46,7 @@ export default function ProductosPage() {
       precio: 6,
       descripcion:
         "Fresas dulces y jugosas, ricas en vitamina C y antioxidantes, ideales para desayunos, postres y smoothies.",
-      imagen: "/fresas_taper_pequeño.jpg",
+      imagen: "/fresas_taper_pequeño.jpeg",
       categoria: "Fresas",
       disponible: true,
       rating: 4.8,
