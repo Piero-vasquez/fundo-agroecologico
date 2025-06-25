@@ -91,6 +91,90 @@ export default function ProductosPage() {
       mensajeWhatsapp:
         "Hola, deseo consultar por las Frambuesas Congeladas Premium. ¿Podrían brindarme más información?",
     },
+
+    {
+      id: 5,
+      nombre: "Aguaymanto (½kg)",
+      precio: 6.5,
+      descripcion:
+        "Aguaymanto pelado, heladito, listo para desinfectar y consumir. Presentación en bandejita de medio kilo.",
+      imagen: "/aguaymanto.jpg", // Asegúrate de tener la imagen en /public
+      categoria: "Aguaymanto",
+      disponible: true,
+      rating: 4.7,
+      beneficios: [
+        "Rico en antioxidantes",
+        "Fuente de vitamina C",
+        "Listo para consumir",
+      ],
+      mensajeWhatsapp:
+        "Hola, quiero pedir Aguaymanto Peladita (½kg) por S/6.50.",
+      destacado: false,
+      casiAgotado: false,
+    },
+    {
+      id: 6,
+      nombre: "Arándanos Premium (½kg)",
+      precio: 14,
+      descripcion:
+        "Arándanos de calidad premium, grandes y bonitos. Pote de medio kilo.",
+      imagen: "/arandanos.jpg", // Asegúrate de tener la imagen en /public
+      categoria: "Arándanos",
+      disponible: true,
+      rating: 4.9,
+      beneficios: [
+        "Alto contenido de antioxidantes",
+        "Fruta fresca y grande",
+        "Ideal para postres y snacks",
+      ],
+      mensajeWhatsapp:
+        "Hola, quiero pedir Arándanos Premium (½kg) por S/14.",
+      destacado: false,
+      casiAgotado: false,
+    },
+    {
+      id: 7,
+      nombre: "Zarzamoras (1kg)",
+      precio: 35,
+      descripcion:
+        "Zarzamoras frescas, ideales para postres, jugos y consumo directo.",
+      imagen: "/zarzamoras.jpg", // Asegúrate de tener la imagen en /public
+      categoria: "Zarzamoras",
+      disponible: true,
+      rating: 4.8,
+      beneficios: [
+        "Ricas en fibra y antioxidantes",
+        "Sabor intenso y natural",
+        "Perfectas para recetas dulces y saladas",
+      ],
+      mensajeWhatsapp:
+        "Hola, quiero pedir Zarzamoras (1kg) por S/35.",
+      destacado: false,
+      casiAgotado: false,
+    },
+    
+    // Producto destacado y casi agotado
+    {
+      id: 8,
+      nombre: "Frambuesa Amarilla (100g)",
+      precio: 5,
+      descripcion:
+        "Frambuesa amarilla, especie de prueba. Tapercito de 100g. Producto de novedad, cantidades limitadas.",
+      imagen: "/frambuesa_amarilla.jpg", // Asegúrate de tener la imagen en /public
+      categoria: "Frambuesas",
+      disponible: true,
+      rating: 4.6,
+      beneficios: [
+        "Variedad exclusiva",
+        "Sabor suave y dulce",
+        "Ideal para degustar",
+      ],
+      mensajeWhatsapp:
+        "Hola, quiero pedir Frambuesa Amarilla (100g) por S/5.",
+      destacado: true,
+      casiAgotado: true,
+    },
+
   ];
 
   const [modalOpen, setModalOpen] = useState(false)
@@ -169,11 +253,24 @@ export default function ProductosPage() {
                     {producto.nombre}
                     {producto.destacado && (
                       <span className="ml-2 px-2 py-1 bg-yellow-200 text-yellow-800 text-xs rounded font-semibold align-middle">
-                        Destacado
+                        Novedad
+                      </span>
+                    )}
+                    {producto.nombre.includes("Frambuesa Amarilla") && (
+                      <span className="ml-2 px-2 py-1 bg-pink-200 text-pink-800 text-xs rounded font-semibold align-middle animate-pulse">
+                        Edición Limitada
                       </span>
                     )}
                   </h3>
-                  <p className="text-gray-600 mb-4">{producto.descripcion}</p>
+                  <p className="text-gray-600 mb-4">
+                    {producto.descripcion}
+                    {producto.nombre.includes("Frambuesa Amarilla") && (
+                      <span className="block mt-2 text-pink-700 text-sm font-semibold">
+                        * Producto experimental, cantidades muy limitadas. Venta
+                        solo en presentación de 100g. ¡Próximamente por kilo!
+                      </span>
+                    )}
+                  </p>
 
                   <div className="mb-4">
                     <h4 className="font-semibold text-gray-900 mb-2">
@@ -269,11 +366,12 @@ export default function ProductosPage() {
             {/* Card completa en el modal */}
             {modalOpen && modalProducto && (
               <div
-                className="fixed inset-0 z-50 flex items-center justify-center bg-black/80"
+                className="fixed inset-0 z-50 flex items-center justify-center bg-transparent"
                 onClick={closeModal}
+                style={{ backdropFilter: "blur(2px)" }} // Opcional: desenfoque sutil
               >
                 <div
-                  className="relative max-w-3xl w-full"
+                  className="relative max-w-xl w-full"
                   onClick={(e) => e.stopPropagation()}
                 >
                   <button
@@ -284,13 +382,15 @@ export default function ProductosPage() {
                     ✕
                   </button>
                   <div className="relative w-full h-[70vh] bg-white rounded-lg overflow-hidden flex items-center justify-center">
-                    <Image
-                      src={modalProducto.imagen || "/placeholder.svg"}
-                      alt={modalProducto.nombre}
-                      fill
-                      className="object-contain"
-                      priority
-                    />
+                    <div className="group relative w-full h-full flex items-center justify-center">
+                      <Image
+                        src={modalProducto.imagen || "/placeholder.svg"}
+                        alt={modalProducto.nombre}
+                        fill
+                        className="object-contain transition-transform duration-300 group-hover:scale-125 cursor-zoom-in"
+                        priority
+                      />
+                    </div>
                   </div>
                 </div>
               </div>

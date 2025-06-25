@@ -118,7 +118,7 @@ export default function ContactosPage() {
           </div>
         </div>
       </section>
-
+      
       {/* Información de Compra */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
